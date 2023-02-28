@@ -311,4 +311,20 @@ Guessed Correctly: 4/5
 <img src="https://user-images.githubusercontent.com/79821802/221990103-70f1e65d-f002-49c2-a81c-338f9f63bc60.png" width=400/>
 </div>
 
-You can easily plot the 
+You can easily plot the accuracy and loss graphs
+
+```python
+network.plot_loss_accuracy()
+```
+
+### Train and save your model
+
+If you want to change the model structure and train the model again, you can do that quite simply
+
+```python
+network.train()
+network.save(<h5ModelDestinationPath>)
+```
+Your model's history will be saved automatically as well. You can change the optimizer and loss functions in the train method. You can either pass the name as a string or use one from `keras.optimizers`. Lastly, `network.train` has a `verbose` argument. You can set it to `0` to not get any progress information in your shell/terminal.
+
+---
