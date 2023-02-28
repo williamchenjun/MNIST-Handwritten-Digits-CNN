@@ -21,7 +21,7 @@ To run the script you will need:
 
 I will include a `requirements.txt` file in this repository. You can use that to install all necessary `pip` packages
 
-```shell
+```
 pip install -r requirements.txt
 ```
 
@@ -37,13 +37,13 @@ The quickest method to solve the issues is to use Anaconda. The installation is 
 
 Make sure that you have XCode command tools installed:
 
-```shell
+```
 xcode-select --install
 ```
 
 Then, create a virtual environment
 
-```shell
+```
 conda create --name <EnvironmentName> python=<PythonVersion>
 ```
 
@@ -51,20 +51,20 @@ conda create --name <EnvironmentName> python=<PythonVersion>
 
 You can activate your Anaconda environment by simply running
 
-```shell
+```
 conda activate <EnvironmentName>
 ```
 
 After setting up and activating the virtual environment, you can install tensorflow using [Apple's guidelines](https://developer.apple.com/metal/tensorflow-plugin/):
 
-```pip
+```
 conda install -c apple tensorflow-deps
 python -m pip install tensorflow-macos
 ```
 
 and if you also want the Tensorflow Metal plug-in (in order to run Tensorflow on GPU) 
 
-```pip
+```
 python -m pip install tensorflow-metal
 ```
 
@@ -82,19 +82,19 @@ Similarly, you can fix the issue by using `pyenv` or by installing an appropriat
 
 To use `pyenv`, install it with [homebrew](https://brew.sh/)
 
-```shell
+```
 brew install pyenv
 ```
 
 Then, install your desired Python version
 
-```shell
+```
 pyenv install <PythonVersion>
 ```
 
 Finally, you can either use that version of Python in your shell, locally or globally
 
-```shell
+```
 pyenv shell <PythonVersion>
 pyenv local <PythonVersion>
 pyenv global <PythonVersion>
