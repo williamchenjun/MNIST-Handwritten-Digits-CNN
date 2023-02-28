@@ -1,0 +1,8 @@
+numpy
+tensorflow-macos==2.9.0
+tensorflow-metal==0.5.0
+scikit-image
+scipy
+matplotlib
+Pillow
+tkinter
