@@ -19,6 +19,8 @@ I will include a `requirements.txt` file in this repository. You can use that to
 pip install -r requirements.txt
 ```
 
+## Tensorflow and Keras Bugs on Mac OS
+
 ### Apple Silicon Mac OS Installation Fixes
 
 If you are having trouble installing tensorflow and/or keras on a M1 mac, or any apple laptop, you can follow this tutorial.
