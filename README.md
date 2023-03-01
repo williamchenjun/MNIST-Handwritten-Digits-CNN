@@ -9,19 +9,23 @@ The model is trained to recognise different stroke widths and handwriting styles
 </div>
 
 <br>
-The model accuracy is 99.47% on the MNIST test dataset. You can see that it is also pretty accurate on unseen data as well.
+The model accuracy is 99.47% on the MNIST test dataset (i.e. 9,947/10,000). You can see that it is also pretty accurate on unseen data as well.
 
-You can adjust the brush stroke width [**Bug**] either through the input field (and pressing the enter/return key on your keyboard to confirm) or you can use the two buttons to increment the width by 1. Moreover, you can import your own trained neural network models (only supports `h5` format). You can change models at any time you want.
+
+
+**How to Use**
+
+The instructions are shown on the applet as well. You can adjust the brush size by clicking the + or - buttons. You are able to test your own neural network model by indicating the name of the .h5 file (or the path to that file). Once you have written the name of the model file that your wish to use, click enter/return to confirm your selection. Now you can start writing on the black canvas. You can also save the digit you wrote as an image in case you want to use it somewhere else.
 
 ## MNIST Dataset
 
-You can find the dataset [here](https://yann.lecun.com/exdb/mnist/). The website describes how the images have been preprocessed as well.
+You can find the dataset [here](https://yann.lecun.com/exdb/mnist/). The website describes how the images have been preprocessed as well. You will find a python script in this repository called `utils.py` which will contain some useful image preprocessing tools e.g. to perform data augmentation.
 
-If you don't want to manually download the dataset, you can just use `keras.datasets.mnist`.
+If you don't want to manually download the dataset, you can just use `keras.datasets.mnist` from the Keras module.
 
 ----
 
-You can also use `MNIST_CNN` class to quickly work with the convolutional network:
+You can also use `MNIST_CNN` class from my `CNN.py` script to quickly work with the convolutional network I trained.
 
 ### Make a prediction using the MNIST test dataset
 **Script**:
@@ -33,7 +37,7 @@ network.predict(use_mnist = True, samples = 10, plot = True)
 ```
 **Output**:
 
-You will see a list of the 10 predictions compared to their true label
+It will output a list of 10 predictions of 10 images chosen at random compared to their true label
 ```
 1/1 [==============================] - 0s 326ms/step
 
@@ -48,7 +52,7 @@ Prediction: 1 – True Label: 1
 Prediction: 7 – True Label: 7
 Prediction: 1 – True Label: 1
 ```
-and a plot will be save in the `Plots` folder
+and a plot will be saved in the `Plots` folder:
 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/79821802/221983510-2fe57c55-f6a3-451a-9e8f-27b25a590791.png" width=800/>
@@ -56,8 +60,9 @@ and a plot will be save in the `Plots` folder
 
 **Note**: The original data actually has a black background and white handwriting.
 
-If instead we wrote
+**Remark**: The folder that contains the `CNN.py` file should have a `Plots` folder.
 
+If you don't want an image generated, you can get a ranking instead:
 ```python
 network.predict(use_mnist = True, samples = 10, rank = True)
 ```
@@ -186,27 +191,25 @@ Guess: 9 – Confidence: 0.00%
 Guess: 6 – Confidence: 0.00%
 Guess: 4 – Confidence: 0.00%
 ```
-which show you the prediction confidence rank.
+which shows you the confidence rank for each image prediction. That is, how confident the network is that the image is a certain number.
 
-**Note**: The method takes random samples from the dataset. Thus, if you want the same outputs every time you run the script, you need to fix a seed.
+**Note**: The method takes random samples from the dataset. Thus, if you want the same outputs every time you run the script, you need to fix a seed using `random.seed` or `np.random.seed`.
 
 ### Make a prediction using your own image
-
+You can import your image and use it to get a prediction:
 ```python
 network.predict(use_mnist = False, filename = "yourimage.png", file_true_label = <TrueLabel>)
 ```
 where `<TrueLabel>` is the true label of the digit you're trying to predict. 
 
-There also, two additional arguments that you can specify
-
+There are also two additional arguments that you can specify: `invert_color` and `center`.
 ```python
 network.predict(use_mnist = False, filename = "zero.png", file_true_label = 0, invert_color = True, center = True)
 ```
-This model is trained on images with black background and white digits. It won't be able to recognise your image if it's the other way around. You can use the `invert_color` argument to invert your image's color. `center` will center your digit at the center of the image like the MNIST data. It might help with getting a more accurate prediction in case the confidence is quite low.
+This model is trained on images with a black background and white digits. It won't be able to recognise your image if the color scheme is the other way around. You can use the `invert_color` argument to invert your image's color. `center` will center your digit at the center of the image like the MNIST data (you will be able to find the code used to do this in my `utils.py` script). It might help with getting a more accurate prediction in case the confidence is quite low.
 
 ### Make a prediction using your own dataset
-
-You can load you own dataset and use it to get predictions. Your folder needs to be structured as follows:
+You can load your own dataset and use it to get predictions. Your folder needs to be structured as follows:
 ```
 + Project Folder
   CNN.py
@@ -225,14 +228,12 @@ You can load you own dataset and use it to get predictions. Your folder needs to
 |– 8
 |– 9
 ```
-
-Thus, in your main working directory, you should have a dataset folder inside of which there are 10 folders named after each digit. Then in each digit folder you should put your images for that digit.
-
+Thus, in your main working directory, you should have a dataset folder inside of which there are 10 folders named after each digit. Then, in each digit folder you should put your images for that digit.
 ```python
 x_test, y_test = network.unseen_sample(pathname, categories = 10, limit = 10, samples = 10, center = True)
 network.predict_unseen(x_test, y_test, plot = True)
 ```
-The `network.unseen_sample` imports your dataset and prepares it for you. You can choose to limit how many images to include for each digit. Again, you have the option to `invert_color` or `center` you images. Afterwards, you can either use `network.predict_unseen` (made specifically for this) or `network.predict`. Note that if you use `network.predict`, you will have to generate a single plot for each digit. There isn't support for arrays of images for that method yet. Whereas, `network.predict_unseen` can predict all of your data at once.
+The `network.unseen_sample` method imports your dataset and prepares it for predictions. You can choose to limit how many images to include for each digit. Again, you have the option to `invert_color` or `center` the images of your dataset. Afterwards, you can either use `network.predict_unseen` (made specifically for this) or `network.predict`. Note that if you use `network.predict`, you will have to generate a prediction one image at a time. There isn't support for arrays of images for that method yet. Whereas, `network.predict_unseen` can predict all of your data at once.
 
 ```
 1/1 [==============================] - 0s 155ms/step
@@ -307,25 +308,22 @@ Guessed Correctly: 4/5
 ```
 
 ### Plot the loss and accuracy graphs for the model
-
-<div align="center">
-<img src="https://user-images.githubusercontent.com/79821802/221990103-70f1e65d-f002-49c2-a81c-338f9f63bc60.png" width=400/>
-</div>
-
-You can easily plot the accuracy and loss graphs
+You can easily plot the accuracy and loss graphs for the model:
 
 ```python
 network.plot_loss_accuracy()
 ```
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/79821802/221990103-70f1e65d-f002-49c2-a81c-338f9f63bc60.png" width=400/>
+</div>
+
 ### Train and save your model
 
-If you want to change the model structure and train the model again, you can do that quite simply
+If you want to change the model structure and/or train the model again, you can do that quite simply
 
 ```python
 network.train()
 network.save(<h5ModelDestinationPath>)
 ```
-Your model's history will be saved automatically as well. You can change the optimizer and loss functions in the train method. You can either pass the name as a string or use one from `keras.optimizers`. Lastly, `network.train` has a `verbose` argument. You can set it to `0` to not get any progress information in your shell/terminal.
-
----
+The model's history will be saved automatically as well. You can change the optimizer and loss functions in the train method by specifying `optimizer` and `loss`. You can either pass the name as a string or use functions from `keras.optimizers` and `keras.losses`. Lastly, `network.train` has a `verbose` argument. You can set it to `0` to not get any progress information in your shell/terminal.
