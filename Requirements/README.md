@@ -1,4 +1,4 @@
-## Requirements to run the applet
+## Requirements to run the applet and `CNN.py`
 
 To run the script you will need:
 - Python >= 3.9.5
