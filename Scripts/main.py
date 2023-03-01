@@ -165,8 +165,7 @@ class DrawDigit:
         self.__model = load_model(model_filename)
     
     def __Predict__(self, event = None) -> None:
-        try:
-            import numpy as np
+        try: import numpy as np
         except: raise Exception("You don't have the numpy module installed.")
 
         drawing = self.__ExtractImage__()
@@ -222,5 +221,6 @@ class DrawDigit:
 
         self.__Root.mainloop()
 
-Window = DrawDigit()
-Window.Display()
+if __name__ == "__main__":
+    Window = DrawDigit()
+    Window.Display()
