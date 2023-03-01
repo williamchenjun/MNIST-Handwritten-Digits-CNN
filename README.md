@@ -11,10 +11,7 @@ The model is trained to recognise different stroke widths and handwriting styles
 <br>
 The model accuracy is 99.47% on the MNIST test dataset (i.e. 9,947/10,000). You can see that it is also pretty accurate on unseen data as well.
 
-
-
-**How to Use**
-
+### How to Use 
 The instructions are shown on the applet as well. You can adjust the brush size by clicking the + or - buttons. You are able to test your own neural network model by indicating the name of the .h5 file (or the path to that file). Once you have written the name of the model file that your wish to use, press enter/return to confirm your selection. Now you can start writing on the black canvas. You can also save the digit you wrote as an image in case you want to use it somewhere else.
 
 ## MNIST Dataset
