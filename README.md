@@ -5,8 +5,9 @@
 The model is trained to recognise different stroke widths and handwriting styles.
 
 <div align="center">
-<video src="https://user-images.githubusercontent.com/79821802/221979894-b297bc4b-6763-421c-9141-33fd76d44a08.mov"></video>
+<video src="https://user-images.githubusercontent.com/79821802/222105686-db9a13fa-97ab-4ed5-a288-3f825c66b8cd.mov"></video>
 </div>
+
 <br>
 The model accuracy is 99.47% on the MNIST test dataset. You can see that it is also pretty accurate on unseen data as well.
 
