@@ -1,10 +1,4 @@
-# Convolutional Neural Network (CNN) – MNIST Handwritten Digits Recognition
-
-**Showcase**
-
-[Insert Image]
-
-## Requirements
+## Requirements to run the applet
 
 To run the script you will need:
 - Python >= 3.9.5
