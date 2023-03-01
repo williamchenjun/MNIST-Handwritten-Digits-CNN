@@ -208,22 +208,35 @@ This model is trained on images with a black background and white digits. It won
 ### Make a prediction using your own dataset
 You can load your own dataset and use it to get predictions. Your folder needs to be structured as follows:
 ```
-+ Project Folder
-  CNN.py
-+ Plots
-+ YourDataset
-|– 0
-   |– zero.png
-   |– etc...
-|– 1
-|– 2
-|– 3
-|– 4
-|– 5
-|– 6
-|– 7
-|– 8
-|– 9
+Project Folder
+│   CNN.py
+│
+└───Plots
+│
+└───YourDataset
+     └───0
+     │   │   yourdata.png
+     │   │   ...
+     │
+     └───1
+     │   │   moredata.png
+     │   │   ...
+     │
+     └───2
+     │
+     └───3
+     │
+     └───4
+     │
+     └───5
+     │
+     └───6
+     │
+     └───7
+     │
+     └───8
+     │
+     └───9
 ```
 Thus, in your main working directory, you should have a dataset folder inside of which there are 10 folders named after each digit. Then, in each digit folder you should put your images for that digit.
 ```python
