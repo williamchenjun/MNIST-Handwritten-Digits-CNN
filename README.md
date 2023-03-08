@@ -30,7 +30,7 @@ python3 main.py
 
 **Remark**: Make sure that you are running the command from the directory containing the `main.py` script.
 
-**Update**: You can now adjust the canvas pixel sizes. However, note that if you decrease the size, it will become quite laggy.
+**Update**: You can now adjust the canvas pixel size in the `main.py` script. Just set `self.__PixelSize` in the constructor to any positive integer. However, note that if you decrease the size, it will become quite laggy.
 
 ## MNIST Dataset
 
