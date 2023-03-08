@@ -8,6 +8,7 @@ The model is trained to recognise different stroke widths and handwriting styles
 <video src="https://user-images.githubusercontent.com/79821802/222105686-db9a13fa-97ab-4ed5-a288-3f825c66b8cd.mov"></video>
 </div>
 <br>
+
 If you run `Webcam.py`, you can use your camera or webcam to recognise digits
 
 <br><div align="center">
