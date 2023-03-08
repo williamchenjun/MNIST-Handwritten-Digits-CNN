@@ -12,8 +12,8 @@ If you run `Webcam.py`, you can use your camera or webcam to recognise digits
 
 <br><div align="center">
 <video src="https://user-images.githubusercontent.com/79821802/223602197-855ab21e-ac90-4e88-a4f1-38851d82b43d.MOV"></video>
-</div>
-<br>
+</div><br>
+
 **Remark**: Digits must be on a black background written with a white stroke.
 
 <br>
