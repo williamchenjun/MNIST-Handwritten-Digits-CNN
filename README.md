@@ -2,11 +2,19 @@
 
 ## Showcase
 
-The model is trained to recognise different stroke widths and handwriting styles.
+The model is trained to recognise different stroke widths and handwriting styles. If you run `main.py` you can draw your own digits
 
 <div align="center">
 <video src="https://user-images.githubusercontent.com/79821802/222105686-db9a13fa-97ab-4ed5-a288-3f825c66b8cd.mov"></video>
 </div>
+
+If you run `Webcam.py`, you can use your camera or webcam to recognise digits
+
+<div align="center">
+<video src="https://user-images.githubusercontent.com/79821802/223602197-855ab21e-ac90-4e88-a4f1-38851d82b43d.MOV"></video>
+</div>
+
+**Remark**: Digits must be on a black background written with a white stroke.
 
 <br>
 The model accuracy is 99.47% on the MNIST test dataset (i.e. 9,947/10,000). You can see that it is also pretty accurate on unseen data outside of the MNIST dataset as well.
