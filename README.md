@@ -7,13 +7,13 @@ The model is trained to recognise different stroke widths and handwriting styles
 <div align="center">
 <video src="https://user-images.githubusercontent.com/79821802/222105686-db9a13fa-97ab-4ed5-a288-3f825c66b8cd.mov"></video>
 </div>
-
+<br>
 If you run `Webcam.py`, you can use your camera or webcam to recognise digits
 
 <div align="center">
 <video src="https://user-images.githubusercontent.com/79821802/223602197-855ab21e-ac90-4e88-a4f1-38851d82b43d.MOV"></video>
 </div>
-
+<br>
 **Remark**: Digits must be on a black background written with a white stroke.
 
 <br>
