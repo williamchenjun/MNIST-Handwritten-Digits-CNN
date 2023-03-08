@@ -18,7 +18,7 @@ def Webcam(delay : int = 1, unit : str = "ms"):
     Bugs
     ----
     - In the presence of reflections, the model might not be able to predict your digit.
-        - Quick Fix: Use paper or a non-reflective surface. Note that the background needs to be black and the stroke needs to be white.
+        - Quick Fix: Use paper or a non-reflective surface, or lower the brightness of your environment and of your monitor. Note that the background needs to be black and the stroke needs to be white.
 
     Example
     -------
