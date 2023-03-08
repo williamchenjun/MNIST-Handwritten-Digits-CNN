@@ -10,8 +10,8 @@ class DrawDigit:
         # Canvas Variables
         self.__CanvasWidth : int = 280
         self.__CanvasHeight : int = 280
-        self.__PixelSize : int = 10
-        self.__ImageShape : tuple = (1, int(self.__CanvasWidth / self.__PixelSize), int(self.__CanvasWidth / self.__PixelSize), 1)
+        self.__PixelSize : int = 7
+        self.__ImageShape : tuple = (1, 28, 28)
         self.__WindowDims : tuple = (550, 650)
         self.__Drawing : dict = {}
         self.__BrushWidth : int = 1
@@ -145,18 +145,22 @@ class DrawDigit:
         
     
     def __ExtractImage__(self):
-        try: import numpy as np
+        try: 
+            import numpy as np
+            from PIL import Image
         except: raise Exception("You don't have the numpy module installed.")
 
-        Image = np.zeros((int(self.__CanvasWidth / self.__PixelSize), 
+        image = np.zeros((int(self.__CanvasWidth / self.__PixelSize), 
                           int(self.__CanvasHeight / self.__PixelSize)))
         
         for (px, py), pval in self.__Drawing.items():
-            Image[(px, py)] = pval
+            image[(px, py)] = pval
 
-        Image = np.array([np.uint8(Image).T]).reshape(self.__ImageShape) / 255
+        image = np.array([np.uint8(image).T]) / 255.0
+        image = Image.fromarray(image[0]).resize((28, 28))
+        image = np.asarray(image).reshape(1, 28, 28)
 
-        return Image
+        return image
     
     def __LoadModel__(self, event = None):
         try: from keras.models import load_model
@@ -165,7 +169,9 @@ class DrawDigit:
         self.__model = load_model(model_filename)
     
     def __Predict__(self, event = None) -> None:
-        try: import numpy as np
+        try: 
+            import numpy as np
+            import matplotlib.pyplot as plt
         except: raise Exception("You don't have the numpy module installed.")
 
         drawing = self.__ExtractImage__()
@@ -204,6 +210,7 @@ class DrawDigit:
             image[(px, py)] = pval
 
         image = Image.fromarray(np.uint8(image).T)
+        image = image.resize((28, 28))
         image.save("Drawing.png", format = "png")
 
     def Display(self) -> None:
