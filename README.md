@@ -30,6 +30,8 @@ python3 main.py
 
 **Remark**: Make sure that you are running the command from the directory containing the `main.py` script.
 
+**Update**: You can now adjust the canvas pixel sizes. However, note that if you decrease the size, it will become quite laggy.
+
 ## MNIST Dataset
 
 You can find the dataset [here](https://yann.lecun.com/exdb/mnist/). The website describes how the images have been preprocessed as well. You will find a python script in this repository called `utils.py` which will contain some useful image preprocessing tools e.g. to perform data augmentation.
